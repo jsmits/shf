@@ -32,6 +32,7 @@ $ cargo install shf
 
 ```shell
 $ shf -h
+shf 0.1.1
 Simple SSH host finder
 
 USAGE:

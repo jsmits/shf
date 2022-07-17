@@ -9,7 +9,7 @@ use ssh_cfg::{SshConfig, SshConfigParser};
 use tokio::runtime;
 
 #[derive(Parser, Debug)]
-#[clap(about, long_about = None)]
+#[clap(version, about, long_about = None)]
 struct Args {
     /// Print all hosts
     #[clap(short, long, value_parser)]

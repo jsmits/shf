@@ -1,3 +1,5 @@
+[![Crates.io](https://img.shields.io/crates/v/shf.svg)](https://crates.io/crates/shf)
+
 Simple SSH host finder.
 Fuzzy search built-in.
 

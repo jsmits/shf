@@ -8,6 +8,12 @@ Fuzzy search built-in.
 
 # Installation
 
+## From crates.io
+
+```shell
+$ cargo install shf
+```
+
 ## From source
 
 ```shell
@@ -20,12 +26,6 @@ $ cargo build --release
 
 # option 2: build and install the resulting executable to the cargo bin directory
 $ cargo install --path .
-```
-
-## From crates.io
-
-```shell
-$ cargo install shf
 ```
 
 # Usage

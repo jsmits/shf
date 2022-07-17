@@ -5,6 +5,7 @@ Fuzzy search built-in.
 
 - [Installation](#installation)
 - [Usage](#usage)
+- [How to contribute](#how-to-contribute)
 
 # Installation
 

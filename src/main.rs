@@ -50,20 +50,17 @@ async fn run(args: Args) -> Result<(), Box<dyn std::error::Error>> {
     }
 
     // Otherwise, let the user skim through the hosts interactively
-    // `SkimItemReader` is a helper to turn any `BufRead` into a stream of `SkimItem`
-    // `SkimItem` was implemented for `AsRef<str>` by default
     let item_reader = SkimItemReader::default();
     let hosts: Vec<&str> = hosts.map(|h| h.deref()).collect();
-    // TODO: if possible, let skim read from the hosts iterator directly
     let items = item_reader.of_bufread(Cursor::new(hosts.join("\n")));
 
-    // `run_with` would read and show items from the stream
     let options = SkimOptionsBuilder::default().build().unwrap();
-    let selected_items = Skim::run_with(&options, Some(items))
-        .map(|out| out.selected_items)
-        .unwrap_or_else(|| Vec::new());
+    let output = Skim::run_with(&options, Some(items)).unwrap();
+    if output.is_abort {
+        return Ok(());
+    }
 
-    for item in selected_items.iter() {
+    for item in output.selected_items.iter() {
         print!("{}{}", item.output(), "\n");
     }
 

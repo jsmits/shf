@@ -11,7 +11,7 @@ Fuzzy search built-in.
 
 # Installation
 
-## From crates.io
+## From [crates.io](https://crates.io/crates/shf)
 
 ```shell
 $ cargo install shf
@@ -22,12 +22,16 @@ $ cargo install shf
 ```shell
 $ git clone https://github.com/jsmits/shf.git
 $ cd shf
+```
 
-# option 1: build executable in current working directory
+### Using `cargo build`
+```shell
 $ cargo build --release
-# put the resulting `target/release/shf` executable on your PATH
+```
+(and put the resulting `target/release/shf` on your `PATH`)
 
-# option 2: build and install the resulting executable to the cargo bin directory
+### Using `cargo install`
+```
 $ cargo install --path .
 ```
 
@@ -62,17 +66,19 @@ $ shf
 $ shf -l
 ```
 
-### Use a non-default SSH config file
+### Using a non-default SSH config file
 
+#### fuzzy search
 ```shell
-# fuzzy search
 $ shf -c /path/to/your/ssh/config/file
+```
 
-# list
+#### list
+```shell
 $ shf -c /path/to/your/ssh/config/file -l
 ```
 
-### Use a custom fuzzy finder, like [fzf](https://github.com/junegunn/fzf)
+### Using a custom fuzzy finder, like [fzf](https://github.com/junegunn/fzf)
 
 ```shell
 $ shf -l | fzf
@@ -80,11 +86,14 @@ $ shf -l | fzf
 
 ### Search for a host and directly SSH into it
 
-```shell
-# bash/zsh
-$ ssh $(shf)
+#### bash / zsh
 
-# fish
+```shell
+$ ssh $(shf)
+```
+
+#### fish
+```shell
 $ ssh (shf)
 ```
 

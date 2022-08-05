@@ -103,4 +103,4 @@ $ ssh (shf)
 # How to contribute
 
 Please [create a new issue](https://github.com/jsmits/shf/issues/new) when you encounter a bug 
-or have any suggestions or feature requests. Pull requests are also warmly welcomed.
+or have any suggestions or feature requests. Pull requests are welcome as well.

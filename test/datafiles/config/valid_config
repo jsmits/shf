@@ -1,0 +1,32 @@
+###################################
+# jump hosts
+###################################
+Host jmp-dev
+    HostName 11.22.33.001
+
+Host jmp-prd
+    HostName 11.22.33.002
+
+###################################
+# dev
+###################################
+
+Host acme-dev-01
+    HostName 12.34.567.01
+    ProxyJump jmp-dev
+
+Host acme-dev-02
+    HostName 12.34.567.02
+    ProxyJump jmp-dev
+
+###################################
+# prd
+###################################
+
+Host choam-prd-01
+    HostName 23.45.678.01
+    ProxyJump jmp-prd
+
+Host choam-prd-02
+    HostName 23.45.678.02
+    ProxyJump jmp-prd

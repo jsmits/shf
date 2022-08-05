@@ -1,0 +1,7 @@
+Host *
+  Include config.d/*
+  ServerAliveInterval 60
+  StrictHostKeyChecking no
+  UserKnownHostsFile /dev/null
+  ForwardAgent yes
+  LocalForward 8080 localhost:80

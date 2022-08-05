@@ -28,11 +28,11 @@ async fn parse_ssh_config(config_path: &str) -> Result<SshConfig, anyhow::Error>
 }
 
 async fn run(args: Args) -> Result<(), Box<dyn std::error::Error>> {
-    let config_path_string = args.config.unwrap_or("~/.ssh/config".to_string());
+    let config_path_string = args.config.unwrap_or_else(|| "~/.ssh/config".to_string());
     let config_path = config_path_string.deref();
     let ssh_config = parse_ssh_config(config_path).await?;
 
-    let hosts = ssh_config.keys().filter(|k| !k.contains("*"));
+    let hosts = ssh_config.keys().filter(|k| !k.contains('*'));
     if hosts.clone().count() == 0 {
         println!(
             "Warning: No non-wildcard hosts were found in `{}`.",
@@ -44,7 +44,7 @@ async fn run(args: Args) -> Result<(), Box<dyn std::error::Error>> {
     // List requested: print all hosts
     if args.list {
         for host in hosts {
-            print!("{}{}", host, "\n");
+            println!("{}", host);
         }
         return Ok(());
     }
@@ -61,7 +61,7 @@ async fn run(args: Args) -> Result<(), Box<dyn std::error::Error>> {
     }
 
     for item in output.selected_items.iter() {
-        print!("{}{}", item.output(), "\n");
+        println!("{}", item.output());
     }
 
     Ok(())

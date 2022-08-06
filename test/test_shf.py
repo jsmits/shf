@@ -1,5 +1,5 @@
 # The integration test of shf
-# Inspired by skim's integration test: https://raw.githubusercontent.com/lotabout/skim/master/test/test_skim.py
+# Inspired by skim's integration test: https://github.com/lotabout/skim/blob/master/test/test_skim.py
 
 import inspect
 import os

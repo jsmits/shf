@@ -333,7 +333,7 @@ class TestShfBash(TestBase):
             lambda lines: lines[-1] == f"Error: Failed to read `{non_existent_config}`."
         )
 
-    def test_no_non_wildcard_host(self):
+    def test_no_valid_host_found(self):
         shutil.copy(
             f"{SCRIPT_DIR}/datafiles/config/single_wildcard_host",
             self.CONFIG,
@@ -359,7 +359,7 @@ class TestShfBash(TestBase):
         expected_line = "Error: SSH configuration contains the following errors:"
         self.tmux.until(lambda lines: lines[-3] == expected_line)
 
-    def test_host_finder(self):
+    def test_find_host(self):
         shutil.copy(
             f"{SCRIPT_DIR}/datafiles/config/valid_config",
             self.CONFIG,

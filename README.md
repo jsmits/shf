@@ -27,13 +27,13 @@ $ git clone https://github.com/jsmits/shf.git
 $ cd shf
 ```
 
-### With `cargo build`
+### `cargo build`
 ```shell
 $ cargo build --release
 ```
 (put the resulting `target/release/shf` on your `PATH`)
 
-### With `cargo install`
+### `cargo install`
 ```
 $ cargo install --path .
 ```
@@ -57,37 +57,21 @@ OPTIONS:
 
 ## Examples
 
-### Fuzzy search through your `~/.ssh/config` hosts
+### Fuzzy search through your hosts
+
+#### In your `~/.ssh/config`
 
 ```shell
 $ shf
 ```
 
-### List all hosts from `~/.ssh/config`
+#### In a different SSH config file
 
 ```shell
-$ shf -l
+$ shf -c /path/to/ssh/config
 ```
 
-### Using a non-default SSH config file
-
-#### Fuzzy search
-```shell
-$ shf -c /path/to/your/ssh/config/file
-```
-
-#### List
-```shell
-$ shf -c /path/to/your/ssh/config/file -l
-```
-
-### Using a custom fuzzy finder, like [fzf](https://github.com/junegunn/fzf)
-
-```shell
-$ shf -l | fzf
-```
-
-### Search for a host and directly SSH into it
+### Search a host and directly SSH into it
 
 #### Bash / Zsh
 
@@ -98,6 +82,12 @@ $ ssh $(shf)
 #### Fish
 ```shell
 $ ssh (shf)
+```
+
+### List all hosts
+
+```shell
+$ shf -l
 ```
 
 # How to contribute

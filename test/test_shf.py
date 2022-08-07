@@ -377,6 +377,43 @@ class TestShfBash(TestBase):
         self.tmux.send_keys(Key("Enter"))
         self.tmux.until(lambda lines: lines[-1] == "acme-dev-01")
 
+    def test_list(self):
+        shutil.copy(
+            f"{SCRIPT_DIR}/datafiles/config/valid_config",
+            self.CONFIG,
+        )
+        self.tmux.send_keys(
+            f"{SHF} -c {self.CONFIG} -l",
+            Key("Enter"),
+        )
+        self.tmux.until(lambda lines: lines[-1] == "choam-prd-02")
+        lines = self.tmux.capture()
+        self.assertEqual(
+            lines[-6:],
+            [
+                "jmp-dev",
+                "jmp-prd",
+                "acme-dev-01",
+                "acme-dev-02",
+                "choam-prd-01",
+                "choam-prd-02",
+            ],
+        )
+
+    def test_version(self):
+        self.tmux.send_keys(
+            f"{SHF} -V",
+            Key("Enter"),
+        )
+        self.tmux.until(lambda lines: lines[-1].startswith("shf"))
+
+    def test_help(self):
+        self.tmux.send_keys(
+            f"{SHF} -h",
+            Key("Enter"),
+        )
+        self.tmux.until(lambda lines: "Print version information" in lines[-1])
+
     def test_abort(self):
         shutil.copy(
             f"{SCRIPT_DIR}/datafiles/config/valid_config",

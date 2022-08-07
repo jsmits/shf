@@ -27,13 +27,13 @@ $ git clone https://github.com/jsmits/shf.git
 $ cd shf
 ```
 
-### `cargo build`
+#### `cargo build`
 ```shell
 $ cargo build --release
 ```
 (put the resulting `target/release/shf` on your `PATH`)
 
-### `cargo install`
+#### `cargo install`
 ```
 $ cargo install --path .
 ```

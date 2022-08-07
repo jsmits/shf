@@ -1,6 +1,6 @@
 [package]
 name = "shf"
-version = "0.1.6"
+version = "0.1.7"
 authors = ["Sander Smits <seater.cherub0k@icloud.com>"]
 edition = "2021"
 description = "Simple SSH host finder"

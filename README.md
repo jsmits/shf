@@ -59,13 +59,13 @@ OPTIONS:
 
 ### Fuzzy search through your hosts
 
-#### In your `~/.ssh/config`
+#### in `~/.ssh/config`
 
 ```shell
 $ shf
 ```
 
-#### In a different SSH config file
+#### in a different SSH config file
 
 ```shell
 $ shf -c /path/to/ssh/config
@@ -73,13 +73,13 @@ $ shf -c /path/to/ssh/config
 
 ### Search a host and directly SSH into it
 
-#### Bash / Zsh
+#### bash / zsh
 
 ```shell
 $ ssh $(shf)
 ```
 
-#### Fish
+#### fish
 ```shell
 $ ssh (shf)
 ```

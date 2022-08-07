@@ -315,7 +315,7 @@ class TestBase(unittest.TestCase):
         self.tmux.send_keys(Key("Enter"))
 
 
-class TestShfBash(TestBase):
+class TestBash(TestBase):
     SHELL = "bash"
     CONFIG = "/tmp/config"
 
@@ -429,11 +429,11 @@ class TestShfBash(TestBase):
         self.tmux.until(lambda lines: lines[-1].endswith("/config"))
 
 
-class TestShfZsh(TestShfBash):
+class TestZsh(TestBash):
     SHELL = "zsh"
 
 
-class TestShfFish(TestShfBash):
+class TestFish(TestBash):
     SHELL = "fish"
 
 

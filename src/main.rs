@@ -22,9 +22,9 @@ struct Args {
 
 async fn parse_ssh_config(config_path: &str) -> Result<SshConfig, anyhow::Error> {
     let path = Path::new(config_path);
-    return SshConfigParser::parse(path)
+    SshConfigParser::parse(path)
         .await
-        .map_err(anyhow::Error::msg);
+        .map_err(anyhow::Error::msg)
 }
 
 async fn run(args: Args) -> Result<(), Box<dyn std::error::Error>> {

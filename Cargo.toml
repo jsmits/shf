@@ -11,7 +11,7 @@ license = "MIT OR Apache-2.0"
 
 [dependencies]
 anyhow = "1.0.58"
-clap = { version = "3.2.12", features = ["derive", "env", "unicode", "cargo"] }
+clap = { version = "4.0.4", features = ["derive", "env", "unicode", "cargo"] }
 log = "0.4.17"
 skim = "0.9.4"
 ssh_cfg = "0.3.0"

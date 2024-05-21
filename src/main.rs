@@ -29,29 +29,26 @@ async fn parse_ssh_config(config_path: &str) -> Result<SshConfig, anyhow::Error>
 
 async fn run(args: Args) -> Result<(), Box<dyn std::error::Error>> {
     let config_path_string = args.config.unwrap_or_else(|| "~/.ssh/config".to_string());
-    let config_path = config_path_string.deref();
-    let ssh_config = parse_ssh_config(config_path).await?;
+    let ssh_config = parse_ssh_config(&config_path_string).await?;
 
-    let hosts = ssh_config.keys().filter(|k| !k.contains('*'));
-    if hosts.clone().count() == 0 {
+    let hosts: Vec<_> = ssh_config.keys().filter(|k| !k.contains('*')).collect();
+    if hosts.is_empty() {
         println!(
             "Warning: No non-wildcard hosts were found in `{}`.",
-            config_path
+            config_path_string
         );
         return Ok(());
     }
 
     // List requested: print all hosts
     if args.list {
-        for host in hosts {
-            println!("{}", host);
-        }
+        hosts.iter().for_each(|host| println!("{}", host));
         return Ok(());
     }
 
     // Otherwise, let the user skim through the hosts interactively
     let item_reader = SkimItemReader::default();
-    let hosts: Vec<&str> = hosts.map(|h| h.deref()).collect();
+    let hosts: Vec<&str> = hosts.into_iter().map(|h| h.deref()).collect();
     let items = item_reader.of_bufread(Cursor::new(hosts.join("\n")));
 
     let options = SkimOptionsBuilder::default().build().unwrap();
@@ -60,9 +57,10 @@ async fn run(args: Args) -> Result<(), Box<dyn std::error::Error>> {
         return Ok(());
     }
 
-    for item in output.selected_items.iter() {
-        println!("{}", item.output());
-    }
+    output
+        .selected_items
+        .iter()
+        .for_each(|item| println!("{}", item.output()));
 
     Ok(())
 }

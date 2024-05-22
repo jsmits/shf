@@ -10,12 +10,12 @@ keywords = ["ssh", "config", "host", "search", "list"]
 license = "MIT OR Apache-2.0"
 
 [dependencies]
-anyhow = "1.0.65"
-clap = { version = "4.0.4", features = ["derive", "env", "unicode", "cargo"] }
-log = "0.4.17"
-skim = "0.9.4"
+anyhow = "1.0.86"
+clap = { version = "4.5.4", features = ["derive", "env", "unicode", "cargo"] }
+log = "0.4.21"
+skim = "0.10.4"
 ssh_cfg = "0.3.0"
-tokio = { version = "1.21.2", features = ["rt"] }
+tokio = { version = "1.37.0", features = ["rt"] }
 
 [profile.release]
 lto = true

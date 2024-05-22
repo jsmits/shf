@@ -23,6 +23,7 @@ repos:
       - id: pretty-format-json
         args: [ --autofix ]
       - id: trailing-whitespace
+        exclude: ".bumpversion.cfg"
 
   - repo: https://github.com/doublify/pre-commit-rust
     rev: v1.0

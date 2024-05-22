@@ -6,10 +6,10 @@ Fuzzy search built-in.
 # Table of contents
 
 - [Installation](#installation)
-  - [From crates.io](#from-cratesio)
-  - [From source](#from-source)
+    - [From crates.io](#from-cratesio)
+    - [From source](#from-source)
 - [Usage](#usage)
-  - [Examples](#examples)
+    - [Examples](#examples)
 - [How to contribute](#how-to-contribute)
 
 # Installation
@@ -28,12 +28,15 @@ $ cd shf
 ```
 
 #### `cargo build`
+
 ```shell
 $ cargo build --release
 ```
+
 (put the resulting `target/release/shf` on your `PATH`)
 
 #### `cargo install`
+
 ```
 $ cargo install --path .
 ```
@@ -45,14 +48,13 @@ $ shf -h
 shf 0.2.1
 Simple SSH host finder
 
-USAGE:
-    shf [OPTIONS]
+USAGE: shf [OPTIONS]
 
 OPTIONS:
-    -c, --config <CONFIG>    SSH config file [default: ~/.ssh/config]
-    -h, --help               Print help information
     -l, --list               Print all hosts
-    -V, --version            Print version information
+    -c, --config <CONFIG>    SSH config file [default: ~/.ssh/config]
+    -h, --help               Print help
+    -V, --version            Print version
 ```
 
 ## Examples
@@ -80,6 +82,7 @@ $ ssh $(shf)
 ```
 
 #### fish
+
 ```shell
 $ ssh (shf)
 ```
@@ -92,5 +95,5 @@ $ shf -l
 
 # How to contribute
 
-Please [create a new issue](https://github.com/jsmits/shf/issues/new) when you encounter a bug 
+Please [create a new issue](https://github.com/jsmits/shf/issues/new) when you encounter a bug
 or have any suggestions or feature requests. Pull requests are welcome as well.

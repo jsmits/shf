@@ -11,13 +11,13 @@ use tokio::runtime;
 #[derive(Parser, Debug)]
 #[clap(version, about, long_about = None)]
 struct Args {
-    /// Print all hosts
-    #[clap(short, long, value_parser)]
-    list: bool,
-
     /// SSH config file [default: ~/.ssh/config]
     #[clap(short, long, value_parser)]
     config: Option<String>,
+
+    /// Print all hosts
+    #[clap(short, long, value_parser)]
+    list: bool,
 }
 
 async fn parse_ssh_config(config_path: &str) -> Result<SshConfig, anyhow::Error> {

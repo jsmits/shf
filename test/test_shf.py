@@ -412,7 +412,7 @@ class TestBash(TestBase):
             f"{SHF} -h",
             Key("Enter"),
         )
-        self.tmux.until(lambda lines: "Print version information" in lines[-1])
+        self.tmux.until(lambda lines: "Print version" in lines[-1])
 
     def test_abort(self):
         shutil.copy(

@@ -51,8 +51,8 @@ Simple SSH host finder
 USAGE: shf [OPTIONS]
 
 OPTIONS:
-    -l, --list               Print all hosts
     -c, --config <CONFIG>    SSH config file [default: ~/.ssh/config]
+    -l, --list               Print all hosts
     -h, --help               Print help
     -V, --version            Print version
 ```
